@@ -1,0 +1,13 @@
+# Dataset
+date <- as.Date(c("2023-01-01","2023-01-02","2023-01-03","2023-01-04","2023-01-05"))
+pageviews <- c(1500,1600,1400,1650,1800)
+ctr <- c(2.3,2.7,2.0,2.4,2.6)
+
+# 1. Line chart – Page views
+plot(date, pageviews, type="o", col="blue",
+     main="Daily Page Views", xlab="Date", ylab="Page Views")
+
+# 2. Bar chart – Highest CTR
+barplot(ctr, names.arg=format(date, "%m-%d"),
+        col="darkgreen", main="Click-through Rates by Day",
+        xlab="Date", ylab="CTR (%)")
