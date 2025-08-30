@@ -1,0 +1,20 @@
+# Dataset
+customer_id <- 1:5
+age <- c(25,30,35,28,40)
+satisfaction <- c(4,5,3,4,5)
+
+# 1. Histogram of ages
+hist(age, col="lightgreen", main="Customer Age Distribution",
+     xlab="Age", ylab="Frequency")
+
+# 2. Pie chart of satisfaction
+satisfaction_count <- table(satisfaction)
+pie(satisfaction_count, labels=paste("Score", names(satisfaction_count)),
+    col=rainbow(length(satisfaction_count)),
+    main="Customer Satisfaction Distribution")
+
+# 3. Stacked bar (Age groups vs Satisfaction)
+age_group <- cut(age, breaks=c(20,30,40,50), labels=c("20-30","31-40","41-50"))
+table_data <- table(age_group, satisfaction)
+barplot(table_data, beside=FALSE, col=rainbow(5),
+        main="Satisfaction by Age Group", legend=TRUE)
