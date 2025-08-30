@@ -1,0 +1,18 @@
+# Dataset
+product <- c("Product A","Product B","Product C")
+jan <- c(2000,1500,1200)
+feb <- c(2200,1800,1400)
+mar <- c(2400,1600,1100)
+
+# 1. Grouped bar chart
+sales_matrix <- rbind(jan,feb,mar)
+barplot(sales_matrix, beside=TRUE, names.arg=product,
+        col=c("red","blue","green"), legend=rownames(sales_matrix),
+        main="Quarterly Product Sales")
+
+# 2. Stacked area chart (cumulative sales)
+months <- c("Jan","Feb","Mar")
+total_sales <- rbind(jan,feb,mar)
+matplot(t(total_sales), type="l", lty=1, col=1:3,
+        xaxt="n", main="Sales Trend", xlab="Month", ylab="Sales")
+axis(1, at=1:3, labels=months)
